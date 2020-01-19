@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class imagesSeeder extends Seeder
 {
@@ -12,10 +13,13 @@ class imagesSeeder extends Seeder
     public function run()
     {
         // poblar la base de datos con información sobre imágenes
-        DB::table('images')->insert([
-            'image_path' => Str::random(10),
-            'description' => Str::random(10)
-        ]);
+
+        User::all()->random(10); // The amount of items you wish to receive
+
+//        DB::table('images')->insert([
+//            'image_path' => Str::random(10),
+//            'description' => Str::random(10)
+//        ]);
     }
 
 //    public function run()

@@ -19,6 +19,7 @@ class Like extends Model
 
     public function company()
     {
+        // Relacion de likes a la empresa, una empresa puede tener muchos likes
         return $this->belongsTo('App\Company', 'company_id');
 
     }
@@ -28,4 +29,5 @@ class Like extends Model
         // Sacaré al imagen relacionada con el comentario por image_id
         return $this->belongsTo('App\Image', 'image_id');
     }
+
 }
