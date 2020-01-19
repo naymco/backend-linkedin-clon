@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS users
     create_at       datetime,
     update_at       datetime,
     CONSTRAINT pk_users PRIMARY KEY (id)
-#     CONSTRAINT fk_users_users_profile FOREIGN KEY (user_profile_id) REFERENCES user_profile (id)
+
 
 ) ENGINE = InnoDB;
 #
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS company
     CONSTRAINT pk_company PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
-INSERT INTO company VALUES (NULL, 'Mi Empresa', 'Somos una empresa muy chula', 'imagen-empresa.jpg', 45345345, 'empresa@empresa.com', 'www.empresa.com', 'calle de la empresa 12', 32323, 'valencia', 'españa', 999999999, CURTIME(), CURTIME());
+# INSERT INTO company VALUES (NULL, 'Mi Empresa', 'Somos una empresa muy chula', 'imagen-empresa.jpg', 45345345, 'empresa@empresa.com', 'www.empresa.com', 'calle de la empresa 12', 32323, 'valencia', 'españa', 999999999, CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS company_profile
 (
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS company_profile
     CONSTRAINT fk_company_profile_offer FOREIGN KEY (offer_id) REFERENCES company_offer (id)
 ) ENGINE = InnoDB;
 
-INSERT INTO company_profile VALUES (NULL, 1, NULL, NULL, NULL, NULL, 'compañia nueva', 'empresa nueva en la red social', CURTIME(), CURTIME());
+# INSERT INTO company_profile VALUES (NULL, 1, NULL, NULL, NULL, NULL, 'compañia nueva', 'empresa nueva en la red social', CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS company_offer
 (
@@ -129,8 +129,8 @@ CREATE TABLE IF NOT EXISTS images
     CONSTRAINT fk_images_company FOREIGN KEY (company_id) REFERENCES company (id)
 ) ENGINE = InnoDB;
 
-INSERT INTO images VALUES (NULL, 1, NULL, 'logo.png', 'Imagen de mi logo', CURTIME(), CURTIME());
-INSERT INTO images VALUES (NULL, NULL, 1, 'Empres-logo.png', 'Imagen de mi logo de empresa', CURTIME(), CURTIME());
+# INSERT INTO images VALUES (NULL, 1, NULL, 'logo.png', 'Imagen de mi logo', CURTIME(), CURTIME());
+# INSERT INTO images VALUES (NULL, NULL, 1, 'Empres-logo.png', 'Imagen de mi logo de empresa', CURTIME(), CURTIME());
 
 
 CREATE TABLE IF NOT EXISTS likes
@@ -147,8 +147,8 @@ CREATE TABLE IF NOT EXISTS likes
     CONSTRAINT fk_likes_images FOREIGN KEY (image_id) REFERENCES images (id)
 ) ENGINE = InnoDB;
 
-INSERT INTO likes VALUES (NULL, 1, NULL, 2, CURTIME(), CURTIME());
-INSERT INTO likes VALUES (NULL, NULL, 1, 2, CURTIME(), CURTIME());
+# INSERT INTO likes VALUES (NULL, 1, NULL, 2, CURTIME(), CURTIME());
+# INSERT INTO likes VALUES (NULL, NULL, 1, 2, CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS comments
 (
@@ -164,8 +164,8 @@ CREATE TABLE IF NOT EXISTS comments
     CONSTRAINT fk_comments_company FOREIGN KEY (company_id) REFERENCES company (id),
     CONSTRAINT fk_comments_image FOREIGN KEY (image_id) REFERENCES images (id)
 ) ENGINE = InnoDB;
- INSERT INTO comments VALUES (NULL, 1, 1, NULL, 'buen aporte', CURTIME(), CURTIME() );
-INSERT INTO comments VALUES (NULL, NULL, 1, 1, 'buen imagen aunque no la vea xd', CURTIME(), CURTIME() );
-INSERT INTO comments VALUES (NULL, NULL, 1, 1, 'prueba de comentario de empresa', CURTIME(), CURTIME() );
-INSERT INTO comments VALUES (NULL, 1, 1, NULL, 'prueba de comentario de user', CURTIME(), CURTIME() );
+#  INSERT INTO comments VALUES (NULL, 1, 1, NULL, 'buen aporte', CURTIME(), CURTIME() );
+# INSERT INTO comments VALUES (NULL, NULL, 1, 1, 'buen imagen aunque no la vea xd', CURTIME(), CURTIME() );
+# INSERT INTO comments VALUES (NULL, NULL, 1, 1, 'prueba de comentario de empresa', CURTIME(), CURTIME() );
+# INSERT INTO comments VALUES (NULL, 1, 1, NULL, 'prueba de comentario de user', CURTIME(), CURTIME() );
 
