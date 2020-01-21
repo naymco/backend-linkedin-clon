@@ -5,17 +5,17 @@ CREATE TABLE IF NOT EXISTS users
 (
     id              int(255) auto_increment not null,
     user_profile_id int(255),
-    role            varchar(20),
+    role            varchar(20) NULL ,
     name            varchar(100),
-    surname         varchar(200),
+    surname         varchar(200) NULL ,
     email           varchar(255) unique,
-    address         varchar(255),
-    zip_code        int(10),
-    province        varchar(20),
-    country         varchar(20),
-    phone           int(10),
+    address         varchar(255) NULL ,
+    zip_code        int(10) NULL ,
+    province        varchar(20) NULL ,
+    country         varchar(20) NULL ,
+    phone           int(10) NULL ,
     password        varchar(255),
-    image           varchar(255),
+    image           varchar(255) NULL ,
     create_at       datetime,
     update_at       datetime,
     CONSTRAINT pk_users PRIMARY KEY (id)
@@ -23,8 +23,6 @@ CREATE TABLE IF NOT EXISTS users
 
 ) ENGINE = InnoDB;
 #
-# INSERT INTO users
-# VALUES (NULL, NULL, 'user', 'Alex', 'Santos', 'alex@gmail.com', 'calle del Heroe 123', 383838, 'valencia', 'españa', 999999999, '1234', 'image.jpg', CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS user_profile
 (
@@ -40,9 +38,8 @@ CREATE TABLE IF NOT EXISTS user_profile
     CONSTRAINT pk_users_profile PRIMARY KEY (id),
     CONSTRAINT fk_users_profile_users FOREIGN KEY (user_id) REFERENCES users (id)
 ) ENGINE = innoDB;
-# INSERT INTO user_profile
-# VALUES (NULL, 1, 'about me wii', 'he trabajado', 'he estudiado', 'programar, programar, programar', 'programar',
-#         CURTIME(), CURTIME());
+
+
 CREATE TABLE IF NOT EXISTS company
 (
     id         int(255) auto_increment not null,
@@ -62,7 +59,6 @@ CREATE TABLE IF NOT EXISTS company
     CONSTRAINT pk_company PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
-# INSERT INTO company VALUES (NULL, 'Mi Empresa', 'Somos una empresa muy chula', 'imagen-empresa.jpg', 45345345, 'empresa@empresa.com', 'www.empresa.com', 'calle de la empresa 12', 32323, 'valencia', 'españa', 999999999, CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS company_profile
 (
@@ -84,7 +80,6 @@ CREATE TABLE IF NOT EXISTS company_profile
     CONSTRAINT fk_company_profile_offer FOREIGN KEY (offer_id) REFERENCES company_offer (id)
 ) ENGINE = InnoDB;
 
-# INSERT INTO company_profile VALUES (NULL, 1, NULL, NULL, NULL, NULL, 'compañia nueva', 'empresa nueva en la red social', CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS company_offer
 (
@@ -99,6 +94,8 @@ CREATE TABLE IF NOT EXISTS company_offer
     CONSTRAINT fk_company_offer_users FOREIGN KEY (user_id) REFERENCES users (id),
     CONSTRAINT fk_company_offer_company FOREIGN KEY (company_id) REFERENCES company (id)
 ) ENGINE = InnoDB;
+
+# INSERT INTO company_offer VALUES (NULL, NULL, 1, 'Oferta para SuperHeroe', 'Se busca heroe para salvar a gatito', CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS state_add
 (
@@ -129,9 +126,6 @@ CREATE TABLE IF NOT EXISTS images
     CONSTRAINT fk_images_company FOREIGN KEY (company_id) REFERENCES company (id)
 ) ENGINE = InnoDB;
 
-# INSERT INTO images VALUES (NULL, 1, NULL, 'logo.png', 'Imagen de mi logo', CURTIME(), CURTIME());
-# INSERT INTO images VALUES (NULL, NULL, 1, 'Empres-logo.png', 'Imagen de mi logo de empresa', CURTIME(), CURTIME());
-
 
 CREATE TABLE IF NOT EXISTS likes
 (
@@ -147,9 +141,6 @@ CREATE TABLE IF NOT EXISTS likes
     CONSTRAINT fk_likes_images FOREIGN KEY (image_id) REFERENCES images (id)
 ) ENGINE = InnoDB;
 
-# INSERT INTO likes VALUES (NULL, 1, NULL, 2, CURTIME(), CURTIME());
-# INSERT INTO likes VALUES (NULL, NULL, 1, 2, CURTIME(), CURTIME());
-
 CREATE TABLE IF NOT EXISTS comments
 (
     id         int(255) auto_increment not null,
@@ -164,8 +155,4 @@ CREATE TABLE IF NOT EXISTS comments
     CONSTRAINT fk_comments_company FOREIGN KEY (company_id) REFERENCES company (id),
     CONSTRAINT fk_comments_image FOREIGN KEY (image_id) REFERENCES images (id)
 ) ENGINE = InnoDB;
-#  INSERT INTO comments VALUES (NULL, 1, 1, NULL, 'buen aporte', CURTIME(), CURTIME() );
-# INSERT INTO comments VALUES (NULL, NULL, 1, 1, 'buen imagen aunque no la vea xd', CURTIME(), CURTIME() );
-# INSERT INTO comments VALUES (NULL, NULL, 1, 1, 'prueba de comentario de empresa', CURTIME(), CURTIME() );
-# INSERT INTO comments VALUES (NULL, 1, 1, NULL, 'prueba de comentario de user', CURTIME(), CURTIME() );
 
