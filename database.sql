@@ -5,17 +5,17 @@ CREATE TABLE IF NOT EXISTS users
 (
     id              int(255) auto_increment not null,
     user_profile_id int(255),
-    role            varchar(20),
+    role            varchar(20) NULL ,
     name            varchar(100),
-    surname         varchar(200),
+    surname         varchar(200) NULL ,
     email           varchar(255) unique,
-    address         varchar(255),
-    zip_code        int(10),
-    province        varchar(20),
-    country         varchar(20),
-    phone           int(10),
+    address         varchar(255) NULL ,
+    zip_code        int(10) NULL ,
+    province        varchar(20) NULL ,
+    country         varchar(20) NULL ,
+    phone           int(10) NULL ,
     password        varchar(255),
-    image           varchar(255),
+    image           varchar(255) NULL ,
     create_at       datetime,
     update_at       datetime,
     CONSTRAINT pk_users PRIMARY KEY (id)
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS user_profile
     CONSTRAINT fk_users_profile_users FOREIGN KEY (user_id) REFERENCES users (id)
 ) ENGINE = innoDB;
 
-#         CURTIME(), CURTIME());
+
 CREATE TABLE IF NOT EXISTS company
 (
     id         int(255) auto_increment not null,
@@ -94,6 +94,8 @@ CREATE TABLE IF NOT EXISTS company_offer
     CONSTRAINT fk_company_offer_users FOREIGN KEY (user_id) REFERENCES users (id),
     CONSTRAINT fk_company_offer_company FOREIGN KEY (company_id) REFERENCES company (id)
 ) ENGINE = InnoDB;
+
+# INSERT INTO company_offer VALUES (NULL, NULL, 1, 'Oferta para SuperHeroe', 'Se busca heroe para salvar a gatito', CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS state_add
 (

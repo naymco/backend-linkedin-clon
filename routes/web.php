@@ -21,30 +21,37 @@ Route::get('/', function () {
     $images = Image::all();
     $companys = Company::all();
 
-    foreach ($images as $image) {
-        echo $image->image_path . "<br/>";
-        echo $image->description . "<br/>";
+    foreach ($companys as $company)
+    {
+        echo '<pre>';
+        var_dump($company->company_profile->title );
+        echo '</pre>';
+    }
+
+//    foreach ($images as $image) {
+//        echo $image->image_path . "<br/>";
+//        echo $image->description . "<br/>";
 //        echo $image->user->name . '' . $image->user->surname . "<br/>";
 
-        if (count($image->comments) >= 1) {
-            echo '<h4>Comentarios: </h4>';
-            foreach ($image->comments as $comment) {
-
-                // Los ?? '' son importantes, no sé por qué no quiere tomar la propiedad name del user
-                // esta es la única forma que encontré de solucionarlo sin complecarme la vida.
-                echo $comment->user->name ?? '';
-                echo $comment->company->name ?? ': ';
-//                foreach ($comment->user as $user)
-//                {
-//                    echo $user->name;
-//                }
-                echo $comment->content . "<br/>";
-            }
-        }
-
-        echo 'LIKES: ' . count($image->likes);
-        echo '<hr/>';
-    }
+//        if (count($image->comments) >= 1) {
+//            echo '<h4>Comentarios: </h4>';
+//            foreach ($image->comments as $comment) {
+//
+//                // Los ?? '' son importantes, no sé por qué no quiere tomar la propiedad name del user
+//                // esta es la única forma que encontré de solucionarlo sin complecarme la vida.
+//                echo $comment->user->name ?? ' ';
+//                echo $comment->company->name ?? ' ';
+////                foreach ($comment->user as $user)
+////                {
+////                    echo $user->name;
+////                }
+//                echo $comment->content . "<br/>";
+//            }
+//        }
+//
+//        echo 'LIKES: ' . count($image->likes);
+//        echo '<hr/>';
+//    }
 
 
 //    foreach ($images as $image) {
