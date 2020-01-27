@@ -17,6 +17,7 @@ class CreateOfferWorksTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('company_id');
+           // $table->index(['user_id', 'company_id']);
             $table->string('title_offer');
             $table->text('description');
             $table->string('experience_level');
