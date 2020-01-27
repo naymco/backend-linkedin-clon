@@ -15,7 +15,7 @@ class CreateUsersCurriculumTable extends Migration
     {
         Schema::create('users_curriculum', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->text('about_me');
             $table->string('image');
             $table->text('work_experience');

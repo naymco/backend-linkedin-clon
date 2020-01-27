@@ -15,19 +15,23 @@ class CreateCompanyTable extends Migration
     {
         Schema::create('company', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('company_name')->unique();
-            $table->string('about_us')->nullable(); ;
-            $table->string('image')->nullable(); ;
-            $table->integer('cif')->nullable();
-            $table->string('email');
-            $table->string('web_page')->nullable(); ;
-            $table->integer('zip_code')->nullable(); ;
-            $table->integer('province_id');
-            $table->string('country')->nullable(); ;
-            $table->integer('phone')->nullable(); ;
+            $table->string('role', 20)->nullable()->default('company');
+            $table->string('name')->unique();
+            $table->string('about_us')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('cif')->unique();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at');
+            $table->string('address', 255)->nullable();
+            $table->string('web_page')->nullable();
+            $table->integer('zip_code')->nullable();
+            $table->unsignedBigInteger('province_id')->nullable();
+            $table->string('country')->nullable();
+            $table->integer('phone')->nullable();
+            $table->rememberToken();
             $table->timestamps();
 
-
+            $table->foreign('province_id')->references('id')->on('provinces');
         });
     }
 

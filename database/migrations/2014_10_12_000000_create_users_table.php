@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('role', 20)->nullable();
+            $table->string('role', 20)->nullable()->default('user');
             $table->string('name');
             $table->string('surname', 100)->nullable();
             $table->string('email')->unique();
@@ -26,8 +26,11 @@ class CreateUsersTable extends Migration
             $table->integer('phone')->nullable();
             $table->string('password');
             $table->string('image', '255')->nullable();
+            $table->unsignedBigInteger('province_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('province_id')->references('id')->on('provinces');
         });
     }
 

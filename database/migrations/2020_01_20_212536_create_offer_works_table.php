@@ -15,8 +15,8 @@ class CreateOfferWorksTable extends Migration
     {
         Schema::create('offer_works', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('company_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('company_id')->nullable();
             $table->string('title_offer');
             $table->text('description');
             $table->string('experience_level');

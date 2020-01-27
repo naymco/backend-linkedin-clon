@@ -15,9 +15,9 @@ class CreateCompanyPageTable extends Migration
     {
         Schema::create('company_page', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('company_id');
-            $table->unsignedBigInteger('images_id');
-            $table->unsignedBigInteger('offer_works_id');
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('images_id')->nullable();
+            $table->unsignedBigInteger('offer_works_id')->nullable();
             $table->string('title');
             $table->text('post');
             $table->timestamps();
