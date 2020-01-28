@@ -24,7 +24,7 @@ Route::post('/user/register', 'PassportController@register');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('user', 'PassportController@details');
-    Route::get('company', 'PassportController@details');
+    Route::get('company', 'PassportController@companyDetails');
 });
 
 

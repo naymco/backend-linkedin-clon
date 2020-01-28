@@ -19,7 +19,7 @@ class CreateCompanyTable extends Migration
             $table->string('name')->unique();
             $table->string('about_us')->nullable();
             $table->string('image')->nullable();
-            $table->integer('cif')->unique();
+            $table->bigInteger('cif')->unique()->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at');
             $table->string('address', 255)->nullable();
@@ -28,6 +28,7 @@ class CreateCompanyTable extends Migration
             $table->unsignedBigInteger('province_id')->nullable();
             $table->string('country')->nullable();
             $table->integer('phone')->nullable();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
 

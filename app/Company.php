@@ -20,7 +20,7 @@ class Company extends Authenticatable
      */
 
     protected $fillable = [
-        'name', 'email', 'password'
+        'name', 'email', 'cif', 'password'
     ];
     /**
      * The attributes that should be hidden for arrays.

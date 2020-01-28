@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Company;
-use http\Params;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\User;
@@ -27,21 +26,25 @@ class PassportController extends Controller
         if ($request->tipo == 'company') {
 //            return 'company';
             //comprobación si el correo está asociado a una cuenta
-            if (Company::where('email', $request->email)->exists() or app_path('./company/register')  == false) {
+            if (Company::where('email', $request->email)->exists()) {
                 return response()->json(['message' => "El correo ya está asociado a una cuenta"], 400);
             }
             $this->validate($request, [
+                'role'=> 'min:3|company',
                 'name' => 'required|min:6|unique:company',
+                'cif'=> 'required|min:5|unique:company',
                 'email' => 'required|email|unique:company',
                 'password' => 'required|min:8',
             ]);
             $company = Company::create([
-                'name' => $request->name_company,
+                'role' => $request->role,
+                'name' => $request->name,
+                'cif'=> $request->cif,
                 'email' => $request->email,
                 'password' => bcrypt($request->password)
             ]);
             $token = $company->createToken('passport')->accessToken;
-            return response()->json(['message' => 'Usuario registrado con éxito', 'token' => $token], 200);
+            return response()->json(['message' => 'Empresa registrada con éxito', 'token' => $token, $company], 200);
         } else {
             //comprobación si el correo está asociado a una cuenta
             if (User::where('email', $request->email)->exists()) {
@@ -90,7 +93,11 @@ class PassportController extends Controller
      */
     public function details()
     {
-        return response()->json(['user' => auth()->user(), 'company'=> auth()->company], 200);
+        return response()->json(['user' => auth()->user()], 200);
+    }
+    public function companyDetails()
+    {
+        return response()->json(['company'=>auth()->company], 200);
     }
 
 
