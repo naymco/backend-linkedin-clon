@@ -12,9 +12,14 @@
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
+<<<<<<< HEAD
         "laravel/passport": "4.0.*",
         "laravel/tinker": "^1.0",
         "paragonie/random_compat": "2.*"
+=======
+        "laravel/tinker": "^1.0",
+        "laravel/passport":"4.0.*"
+>>>>>>> feature/usuario
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
