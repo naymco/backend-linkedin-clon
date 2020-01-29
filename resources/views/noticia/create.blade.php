@@ -10,17 +10,17 @@
         
         <div class="card-body">
 
-        <form method="POST" action="" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('noticia.save') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group row">
-                <label for="image"class="col-md-4 col-form-label text-md-right">Imagen </label>
+                <label for="image_path"class="col-md-4 col-form-label text-md-right">Imagen </label>
                 <div class="col-md-7">
-                <input id="image" type="file" name="image" class="form-control" />
+                <input id="image_path" type="file" name="image_path" class="form-control" />
 
-                @if($errors->has('image'));
+                @if($errors->has('image_path'))
                 <span class="invalid-feedback" rol="alert">
-                <strong>{{$errors->first('image')}}</strong>
+                <strong>{{$errors->first('image_path')}}</strong>
                 @endif
             </div>
           </div>

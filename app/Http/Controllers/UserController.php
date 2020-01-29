@@ -17,6 +17,7 @@ class UserController extends Controller
     
     public function config (){
         return view('user.config');
+         
     }
     public function update (Request $request){
 
