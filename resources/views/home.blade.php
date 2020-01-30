@@ -14,25 +14,29 @@
                  </div>
                  @endif
                  <div class="data-user">
-                {{$image->user->name.' '.$image->user->surname.' | @'.$image->user->nickname}}</div>
+                   <a href="{{ route('noticia.detail',['id'=> $image->id]) }}">
+                {{$image->user->name.' '.$image->user->surname.' | @'.$image->user->nickname}}
+                   </a>
                 </div>
                    <div class="card-body">
                     <div class="image-container">
                        <img src="{{route('noticia.file',['filename'=>$image->image_path])}}"/>
                    </div>
-                  
+
                 <div class="description">
+
                <span class="nickname"> {{'@'.$image->user->name}} </span>
+                    <span class="nickname date"> {{'| '.$image->created_at}} </span>
                     <p>{{$image->description}}</p>
                   </div>
 
                   <div class="likes">
                        <img src="{{asset('img/heart-black.png')}}" />
                 </div>
-                  <div class="comments"> 
+                  <div class="comments">
                    <a href="" class="btn btn-sm btn-warning btn-comments">
                     Comentarios ({{count($image->comments)}})
-                  </a> 
+                  </a>
                      </div>
                 </div>
             </div>

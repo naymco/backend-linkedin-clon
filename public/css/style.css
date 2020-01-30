@@ -49,7 +49,7 @@ form .avatar{
 .pub_image .description{
     padding: 20px;
     padding-bottom:0px;
-   
+
 }
 
 .pub_image .btn-comments{
@@ -57,12 +57,15 @@ form .avatar{
     margin-top:0px;
     margin-left: 0px;
 }
+.pub_image .data-user a{
+    color:#444444;
+}
 
 .likes{
     float:left;
     padding-left:20px;
     padding-right: 10px;
-    
+
 
 }
 

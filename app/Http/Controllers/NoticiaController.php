@@ -25,20 +25,20 @@ class NoticiaController extends Controller
         // //Validación
         $validate = $this->validate($request, [
             'description'=> 'required',
-            'image_path'=> 'required|image' 
+            'image_path'=> 'required|image'
         ]);
 
         //Recoger datos
         $image_path = $request->file('image_path');
         $description = $request->input('description');
 
-          
+
 
         // //Asignar valores nuevo objeto
         $user = \Auth::user();
         $image = new Image();
         $image->user_id = $user->id;
-        
+
         $image->description = $description;
 
         // //Subir fichero
@@ -57,5 +57,13 @@ class NoticiaController extends Controller
     public function getNoticia($filename){
         $file = Storage::disk('images')->get($filename);
         return new Response($file,200);
+    }
+
+    public function  detail($id){
+        $image = Image::find($id);
+
+        return view('noticia.detail',[
+            'image' => $image
+        ]);
     }
 }
