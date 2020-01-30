@@ -30,6 +30,12 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/user/update', 'UserController@update')->name('user.update');
     Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
     Route::get('/subir-noticia', 'NoticiaController@create')->name('noticia.create');
+    Route::post('/noticia/save', 'NoticiaController@save')->name('noticia.save');
+    Route::get('/noticia/file/{filename}', 'NoticiaController@getNoticia')->name('noticia.file');
+    Route::get('/noticias/{id}', 'NoticiaController@detail')->name('noticia.detail');
+
+
+
 });
 
 

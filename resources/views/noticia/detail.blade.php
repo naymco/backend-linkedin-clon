@@ -6,7 +6,7 @@
             <div class="col-md-10">
                 @include('includes.message')
 
-                    <div class="card pub_image">
+                    <div class="card pub_image pub_image_detail">
                         <div class="card-header">
                             @if($image->user->image)
                                 <div class="container-avatar">
@@ -15,7 +15,6 @@
                             @endif
                             <div class="data-user">
                                 {{$image->user->name.' '.$image->user->surname.' | @'.$image->user->nickname}}
-
                         </div>
                         <div class="card-body">
                             <div class="image-container">
@@ -30,10 +29,20 @@
                             <div class="likes">
                                 <img src="{{asset('img/heart-black.png')}}" />
                             </div>
+                            <div class="clearfix"></div>
                             <div class="comments">
-                                <a href="" class="btn btn-sm btn-warning btn-comments">
-                                    Comentarios ({{count($image->comments)}})
-                                </a>
+                                <h2> Comentarios ({{count($image->comments)}}) </h2>
+                                <form method="POST" action="">
+                                    @csrf
+                                    <input type="hidden" name="image_id" value="{{$image->id}}" />
+                                    <p>
+                                        <textarea class="form-control" name="content" required></textarea>
+                                    </p>
+                                    <button type="submit" class="btn btn-success">
+                                        Enviar
+                                    </button>
+
+                                </form>
                             </div>
                         </div>
                     </div>
