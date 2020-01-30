@@ -32,11 +32,16 @@
                             <div class="clearfix"></div>
                             <div class="comments">
                                 <h2> Comentarios ({{count($image->comments)}}) </h2>
-                                <form method="POST" action="">
+                                <form method="POST" action="{{route ('comment.save') }}">
                                     @csrf
                                     <input type="hidden" name="image_id" value="{{$image->id}}" />
                                     <p>
-                                        <textarea class="form-control" name="content" required></textarea>
+                                        <textarea class="form-control" name="content" required> </textarea>
+                                        @if($errors->has('content'))
+                                            <span role="alert">
+                                                <strong>{{ $errors->first('content') }}</strong>
+                                            @endif
+                                            </span>
                                     </p>
                                     <button type="submit" class="btn btn-success">
                                         Enviar
