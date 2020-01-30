@@ -20,12 +20,20 @@
                     <div class="image-container">
                        <img src="{{route('noticia.file',['filename'=>$image->image_path])}}"/>
                    </div>
-                   <div class="likes">
-                </div>
+                  
                 <div class="description">
                <span class="nickname"> {{'@'.$image->user->name}} </span>
                     <p>{{$image->description}}</p>
+                  </div>
+
+                  <div class="likes">
+                       <img src="{{asset('img/heart-black.png')}}" />
                 </div>
+                  <div class="comments"> 
+                   <a href="" class="btn btn-sm btn-warning btn-comments">
+                    Comentarios ({{count($image->comments)}})
+                  </a> 
+                     </div>
                 </div>
             </div>
             @endforeach
