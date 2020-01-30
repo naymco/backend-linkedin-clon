@@ -5,10 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-        @if (session('message'))
-    <div class="alert alert-success">
-        {{session('message')}}
-        @endif
+        @include('includes.message')
             <div class="card">
                 <div class="card-header">Configuración de mi cuenta</div>
 
@@ -77,6 +74,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </div>
 @endsection

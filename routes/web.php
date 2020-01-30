@@ -24,3 +24,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/configuracion', 'UserController@config')->name('config');
 Route::post('/user/update', 'UserController@update')->name('user.update');
 Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
+Route::get('/subir-noticia', 'NoticiaController@create')->name('noticia.create');
+Route::post('/noticia/save', 'NoticiaController@save')->name('noticia.save');
+Route::get('/noticia/file/{filename}', 'NoticiaController@getNoticia')->name('noticia.file');
+
+

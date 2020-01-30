@@ -15,14 +15,8 @@ class CreateStateAddTable extends Migration
     {
         Schema::create('state_add', function (Blueprint $table) {
             $table->bigIncrements('id');
-<<<<<<< HEAD
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
-=======
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('company_id');
-            $table->index(['user_id', 'company_id']);
->>>>>>> feature/usuario
             $table->string('checking_state');
             $table->string('success_status');
             $table->string('rejected_status');
