@@ -29,6 +29,7 @@ Route::post('/noticia/save', 'NoticiaController@save')->name('noticia.save');
 Route::get('/noticia/file/{filename}', 'NoticiaController@getNoticia')->name('noticia.file');
 Route::get('/noticias/{id}', 'NoticiaController@detail')->name('noticia.detail');
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
+Route::get('/COMMENT/DELETE/{id}', 'CommentController@delete')->name('comment.delete');
 
 
 
