@@ -23,6 +23,7 @@
 
                             <div class="description">
                                 <span class="nickname"> {{'@'.$image->user->name}} </span>
+                                <span class="nickname date"> {{'| '.$image->created_at}} </span>
                                 <p>{{$image->description}}</p>
                             </div>
 
@@ -40,7 +41,7 @@
                                         @if($errors->has('content'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('content') }}</strong>
-                                            @endif
+                                        @endif
                                             </span>
                                     </p>
                                     <button type="submit" class="btn btn-success">
@@ -48,9 +49,11 @@
                                     </button>
 
                                 </form>
+
                             </div>
                         </div>
                     </div>
+            </div>
             </div>
         </div>
     </div>

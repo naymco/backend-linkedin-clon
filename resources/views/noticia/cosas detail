@@ -1,0 +1,9 @@
+@foreach($image->comments as $comment)
+                                    <div class="comment">
+
+                                    <span class="nickname"> {{'@'.$comment->user->name}} </span>
+                                    <span class="nickname date"> {{'| '.$comment->created_at}} </span>
+                                    <p>{{$comment->content}}</p>
+
+                                    </div>
+@endforeach
