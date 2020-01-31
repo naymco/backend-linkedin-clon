@@ -13,7 +13,7 @@ class Image extends Model
     public function comments()
     {
         // Cuando yo llame a comments obtendré el objeto de los comentarios
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment')->orderBy('id', 'desc');
     }
 
     //Relación One To Many con Likes
