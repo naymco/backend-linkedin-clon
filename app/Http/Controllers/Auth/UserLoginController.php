@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+
 
 
 class UserLoginController extends Controller
@@ -48,7 +48,7 @@ class UserLoginController extends Controller
         try {
 
             $body =$request->input();
-            $userCompro = DB::table('usuarios')
+            $userCompro = DB::table('users')
                 ->where('email', '=', $body{'email'})
                 ->get();
             if(count($userCompro) === 0){
@@ -63,8 +63,8 @@ class UserLoginController extends Controller
 
 
             if($testPass === $password){
-                $generarToken=encrypt(str_random(15));
-                $actualizarToken= DB::table('usuarios')
+               $generarToken=encrypt(str_random(15));
+                     DB::table('users')
                     ->where('email', '=', $body{'email'})
                     ->update(['remember_token'=>$generarToken]);
                 return 'Te has conectado correctamente';
@@ -78,7 +78,7 @@ class UserLoginController extends Controller
             return response('Ha ocurrido un error');
         }
 
-        // return $testPass;
+       // return $testPass;
 
     }
 }
