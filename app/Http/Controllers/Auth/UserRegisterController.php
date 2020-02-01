@@ -5,14 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class UserRegisterController extends Controller
+class  UserRegisterController extends Controller
 {
-    use RegistersUsers;
+    //use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -31,7 +28,7 @@ class UserRegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function rules(){
+   /* public function rules(){
         return[
             'name' => 'required|string|max:25',
             'surname' => 'required|string|max:25',
@@ -46,7 +43,7 @@ class UserRegisterController extends Controller
             'zip_code'=> 'required|string|max:255',
             'province'=> 'required|string|max:255',
         ];
-    }
+    }*/
 
 
     /**
@@ -62,7 +59,7 @@ class UserRegisterController extends Controller
             $data->validate([
                 'name' => 'required|string|max:25',
                 'surname' => 'required|string|max:25',
-                'email' => 'required|string|email|max:255|unique',
+                'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|min:8|string',
                 'phone' => 'required|string|max:255',
                 'address' => 'required|string|max:255',
