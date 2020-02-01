@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -42,35 +41,35 @@ class UserLoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function loginUsuario(Request $request){
+    public function loginUser(Request $request){
 
 
 
         try {
 
             $body =$request->input();
-            $comprobarUsuarioExistente = DB::table('user')
+            $userCompro = DB::table('usuarios')
                 ->where('email', '=', $body{'email'})
                 ->get();
-            if(count($comprobarUsuarioExistente) === 0){
-                return response('Algo esta mal');
+            if(count($userCompro) === 0){
+                return response('Datos incorrectos');
             }
 
 
 
-            $passTest=decrypt($comprobarUsuarioExistente[0]->contrasenia);
+            $testPass=decrypt($userCompro[0]->password);
 
             $password= ($body{'password'});
 
 
-            if($passTest === $password){
+            if($testPass === $password){
                 $generarToken=encrypt(str_random(15));
-                $actualizarToken= DB::table('user')
+                $actualizarToken= DB::table('usuarios')
                     ->where('email', '=', $body{'email'})
                     ->update(['remember_token'=>$generarToken]);
                 return 'Te has conectado correctamente';
             }else{
-                return  response('Contrasenia o correo invalido');
+                return  response('Datos incorrectos');
             }
 
             //code...
@@ -79,7 +78,7 @@ class UserLoginController extends Controller
             return response('Ha ocurrido un error');
         }
 
-        // return $comprobarcontrasenia;
+        // return $testPass;
 
     }
 }

@@ -8,6 +8,7 @@ Route::group(['middleware'=>['cors']], function (){
     //Se crea un usuario
     Route::post('/register', 'Auth\UserRegisterController@create');
     //Se logea un usuario
-    Route::post('/login', 'Auth\UserLoginController@loginUsuario');
+    Route::post('/login', 'Auth\UserLoginController@loginUser');
+    Route::post('/logout', 'Auth\UserLogoutController@logout');
 
 });
