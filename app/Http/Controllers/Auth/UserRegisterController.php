@@ -53,7 +53,7 @@ class UserRegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @body  array  $data
-     * @return \App\Usuario
+     * @return \App\User
      */
     protected function create(Request $data)
     {
@@ -72,7 +72,7 @@ class UserRegisterController extends Controller
                 'zip_code'=> 'required|string|max:255',
                 'province'=> 'required|string|max:255',
             ]);
-            return Usuario::create([
+            return User::create([
                     'name'=>$data{"name"},
                     'surname'=>$data{"surname"},
                     'email'=>$data{"email"},

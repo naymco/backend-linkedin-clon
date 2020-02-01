@@ -10,11 +10,14 @@
     "require": {
         "php": "^7.1.3",
         "doctrine/dbal": "^2.10",
+        "egulias/email-validator": "^2.1",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/passport": "4.0.*",
         "laravel/tinker": "^1.0",
-        "paragonie/random_compat": "2.*"
+        "nesbot/carbon": "^2.29",
+        "paragonie/random_compat": "2.*",
+        "phpspec/prophecy": "^1.10"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
