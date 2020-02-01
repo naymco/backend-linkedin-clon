@@ -2,6 +2,7 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Closure;
 
@@ -10,7 +11,7 @@ class UserToken
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @param  \Closure  $next
      * @return mixed
      */

@@ -37,6 +37,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/noticias/{id}', 'NoticiaController@detail')->name('noticia.detail');
     Route::post('/comment/save', 'CommentController@save')->name('comment.save');
     Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
+    Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
 
 
 
