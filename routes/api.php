@@ -23,6 +23,13 @@ Route::post('/user/login', 'PassportController@login');
 Route::post('/user/register', 'PassportController@register');
 Route::get('/prueba ', 'HomeController@index');
 
+
+Route::group(['middleware'=>['cors']], function (){
+//Saca las ofertas que esten anunciado
+Route::get('/anuncio', 'OfferWorksController@ofertasAnuncios');
+
+});
+
 Route::middleware('auth:api')->group(function () {
     Route::get('user', 'PassportController@details');
     Route::get('company', 'PassportController@companyDetails');

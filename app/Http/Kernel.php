@@ -61,8 +61,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'cors'=>\App\Http\Middleware\Cors::class,
-        'tokenUsuario'=>\App\Http\Middleware\UserToken::class,
-        'tokenEmpresa'=>\App\Http\Middleware\CompanyToken::class,
+        'UserToken'=>\App\Http\Middleware\UserToken::class,
+        'CompanyToken'=>\App\Http\Middleware\CompanyToken::class,
     ];
 
     /**
