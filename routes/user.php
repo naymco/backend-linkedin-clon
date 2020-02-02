@@ -11,4 +11,7 @@ Route::group(['middleware'=>['cors']], function (){
     Route::post('/login', 'Auth\UserLoginController@loginUser');
     Route::post('/logout', 'Auth\UserLogoutController@logout');
 
+    //Modificar perfil
+    Route::post('/modificarperfil', 'ModificarPerfilUsuarioController@CambiarPerfilUsuario');
+
 });
