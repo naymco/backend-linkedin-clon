@@ -26,6 +26,7 @@ class ModificarPerfilUsuarioController extends Controller
                     'email' =>$usuario{'email'},
                     'address' =>$usuario{'address'},
                     'country' =>$usuario{'country'},
+                    'image' => $usuario{'image'},
                     'province' =>$usuario{'province'},
                     'zip_code' =>$usuario{'zip_code'}]);
             return response('Se ha modificado el perfil correctamente');
