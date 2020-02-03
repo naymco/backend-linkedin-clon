@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('image', '255')->nullable();
             $table->unsignedBigInteger('province_id')->nullable();
-            $table->rememberToken();
+            $table->string('remember_token')->nullable();
             $table->timestamps();
 
             $table->foreign('province_id')->references('id')->on('provinces');
