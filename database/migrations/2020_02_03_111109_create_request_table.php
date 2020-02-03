@@ -16,10 +16,11 @@ class CreateRequestTable extends Migration
         Schema::create('request', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('offer_works_id');
-            $table->unsignedBigInteger('state_add_id');
-            $table->boolean('visible_user');
-            $table->boolean('visible_company');
+            $table->unsignedBigInteger('offer_works_id')->nullable();
+            $table->unsignedBigInteger('state_add_id')->nullable();
+            $table->string('state')->nullable();
+            $table->boolean('visible_user')->nullable();
+            $table->boolean('visible_company')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
