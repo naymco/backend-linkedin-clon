@@ -5,9 +5,6 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -40,12 +37,15 @@ class CompanyRegisterController extends Controller
 
             $data->validate([
                 'cif' => 'required|string|max:25',
-                'email' => 'required|string|email|max:255|unique:usuarios',
+                'email' => 'required|string|max:255|unique:company',
                 'password' => 'required|min:8|string',
                 'name' => 'required|string|max:255',
-                'zip_code' => 'required|string|max:255',
+                /*'zip_code' => 'required|string|max:255',
                 'country' => 'required|string|max:255',
-                'province_id' => 'required|string|max:255'
+               // 'province_id' => 'required|
+                string|max:255',
+                'phone' => 'required|string|max:255',
+                'web_page' => 'required|string|max:255'*/
 
             ]);
             return Company::create([
@@ -53,16 +53,18 @@ class CompanyRegisterController extends Controller
                     'email'=>$data{"email"},
                     'password'=>encrypt($data{"password"}),
                     'name'=>$data{"name"},
-                    'zip_code'=>$data{"zip_code"},
+                    /*'zip_code'=>$data{"zip_code"},
                     'country'=>$data{"country"},
-                    'province_id'=>$data{"province_id"},
+                    //'province_id'=>$data{"province_id"},
+                    'phone'=>$data{"phone"},
+                    'web_page'=>$data{"phone"},*/
 
                 ]
 
             );
 
         } catch (\Exception $e) {
-            return $e->getMessage();
+           return $e->getMessage();
 
 
         }

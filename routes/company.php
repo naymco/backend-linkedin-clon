@@ -11,6 +11,9 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('/verperfil/{id}', 'VerPerfilController@verPerfilEmpresa');
 
     });
+    Route::post('/login', 'Auth\CompanyLoginController@loginCompany');
+    //Se deslogea un usuario
+    Route::post('/logout', 'Auth\CompanyLogoutController@logout');
     //Registrar
-    Route::post('/registro', 'Auth\CompanyRegisterController@create');
+    Route::post('/register', 'Auth\CompanyRegisterController@create');
 });

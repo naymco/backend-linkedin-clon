@@ -25,6 +25,7 @@ class CreateCompanyPageTable extends Migration
             $table->foreign('company_id')->references('id')->on('company');
             $table->foreign('images_id')->references('id')->on('images');
             $table->foreign('offer_works_id')->references('id')->on('company');
+            $table->string('remember_token')->nullable();
         });
     }
 
