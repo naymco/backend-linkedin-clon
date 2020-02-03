@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStateAddTable extends Migration
+class CreateRequestTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateStateAddTable extends Migration
      */
     public function up()
     {
-        Schema::create('state_add', function (Blueprint $table) {
+        Schema::create('request', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('company_id')->nullable();
-            $table->string('checking_state');
+            $table->unsignedBigInteger('offer_works_id');
+            $table->unsignedBigInteger('state_add_id');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->foreign('offer_works_id')->references('id')->on('offer_works');
+            $table->foreign('state_add_id')->references('id')->on('state_add');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateStateAddTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('state_add');
+        Schema::dropIfExists('request');
     }
 }

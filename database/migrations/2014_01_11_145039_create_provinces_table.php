@@ -18,7 +18,6 @@ class CreateProvincesTable extends Migration
             $table->string('city');
             $table->timestamps();
 
-
         });
     }
 
