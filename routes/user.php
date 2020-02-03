@@ -9,7 +9,7 @@ Route::group(['middleware'=>['cors']], function (){
 
    //Empleos
     Route::post('/solicitaroferta', 'SolicitarOfertaController@solicitarOferta');
-
+    Route::post('/rechazarsolicitud', 'AdminUserRequest@AdministrarSolicitud');
     //Modificar perfil
     Route::post('/modificarperfil', 'ModificarPerfilUsuarioController@CambiarPerfilUsuario');
     Route::get('/verperfil/{id}', 'VerPerfilController@verPerfilUsuario');
