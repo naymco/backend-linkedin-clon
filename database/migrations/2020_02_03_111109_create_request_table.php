@@ -18,6 +18,8 @@ class CreateRequestTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('offer_works_id');
             $table->unsignedBigInteger('state_add_id');
+            $table->boolean('visible_user');
+            $table->boolean('visible_company');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
