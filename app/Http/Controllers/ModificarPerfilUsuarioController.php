@@ -10,6 +10,7 @@ class ModificarPerfilUsuarioController extends Controller
     public function CambiarPerfilUsuario(Request $request){
 
         $usuario=$request->input();
+
         $comprobarUsuario=DB::table('users')
             ->where('id', '=', $usuario{'id'})
             ->get();

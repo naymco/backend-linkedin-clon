@@ -19,7 +19,7 @@ class UserToken
     {
 
         $token = $_SERVER['HTTP_AUTHORIZATION'];
-        $userTest=DB::table('user')
+        $userTest=DB::table('users')
             ->where('remember_token', '=', $token)
             ->get();
 

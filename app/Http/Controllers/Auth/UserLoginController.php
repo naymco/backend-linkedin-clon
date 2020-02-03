@@ -38,6 +38,7 @@ class UserLoginController extends Controller
      */
     public function __construct()
     {
+
         $this->middleware('guest')->except('logout');
     }
 
@@ -45,10 +46,12 @@ class UserLoginController extends Controller
 
 
 
-        try {
+
+      try {
 
             $body =$request->input();
-            $userCompro = DB::table('users')
+
+           $userCompro = DB::table('users')
                 ->where('email', '=', $body{'email'})
                 ->get();
             if(count($userCompro) === 0){
@@ -75,10 +78,11 @@ class UserLoginController extends Controller
             //code...
         } catch (\Exception $e) {
             //throw $th;
-            return response('Ha ocurrido un error');
+            return $e->getMessage();
         }
 
        // return $testPass;
+
 
     }
 }
