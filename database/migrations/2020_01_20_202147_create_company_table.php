@@ -19,7 +19,7 @@ class CreateCompanyTable extends Migration
             $table->string('name')->unique();
             $table->string('about_us')->nullable();
             $table->string('image')->nullable();
-            $table->bigInteger('cif')->unique()->nullable();
+            $table->bigInteger('cif')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at');
             $table->string('address', 255)->nullable();

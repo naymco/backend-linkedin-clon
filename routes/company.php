@@ -12,5 +12,5 @@ Route::group(['middleware'=>['cors']], function (){
 
     });
     //Registrar
-    Route::post('/registro', 'Auth\CompanyRegisterController@create');
+    Route::post('/register', 'Auth\CompanyRegisterController@create');
 });
