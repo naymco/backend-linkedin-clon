@@ -61,25 +61,25 @@ class  UserRegisterController extends Controller
                 'surname' => 'required|string|max:25',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|min:8|string',
-                'phone' => 'required|string|max:255',
+               /* 'phone' => 'required|string|max:255',
                 'address' => 'required|string|max:255',
                 'image' => 'required|string|max:255',
                 'country' => 'required|string|max:255',
                 // 'remember_token' =>  'string|max:255',
                 'zip_code'=> 'required|string|max:255',
-                'province'=> 'required|string|max:255',
+                'province'=> 'required|string|max:255',*/
             ]);
             return User::create([
                     'name'=>$data{"name"},
                     'surname'=>$data{"surname"},
                     'email'=>$data{"email"},
-                    'phone'=>$data{"phone"},
+                    'password'=>encrypt($data{"password"}),
+                    /*'phone'=>$data{"phone"},
                     'image'=>$data{"image"},
                     'address'=>$data{"address"},
-                    'password'=>encrypt($data{"password"}),
                     'country' => $data{"country"},
                     'zip_code'=> $data{"zip_code"},
-                    'province'=> $data{"province"},
+                    'province'=> $data{"province"},*/
 
                 ]
 

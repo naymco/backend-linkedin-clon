@@ -31,6 +31,7 @@ class CreateCompanyTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('remember_token')->nullable();
 
             $table->foreign('province_id')->references('id')->on('provinces');
         });
