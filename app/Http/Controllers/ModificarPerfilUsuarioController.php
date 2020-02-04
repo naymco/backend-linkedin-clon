@@ -29,10 +29,10 @@ class ModificarPerfilUsuarioController extends Controller
                     'image' => $usuario{'image'},
                     'province' =>$usuario{'province'},
                     'zip_code' =>$usuario{'zip_code'}]);
-            return response('Se ha modificado el perfil correctamente');
+            return response('Perfil modificado correctamente');
         }else{
 
-            return response('Se ha producido un error');
+            return response('Upps ocurrio un error');
         }
         // return $usuario;
     }
