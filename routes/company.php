@@ -11,12 +11,11 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('/versolicitudes/{id}', 'VerSolicitudesController@VerSolicitudesEmpresas');
     Route::post('/cambiarsolicitud', 'AdminCompanyRequestController@AdministrarSolicitud');
     Route::post('/modificarperfil', 'ModificarPerfilEmpresaController@CambiarPerfilEmpresa');
-
-
+    Route::post('/borrarsolicitud', 'EliminarSolicitudEmpresa Controller@borrarSolicitud');
+    Route::post('/borrarofertatrabajo', 'EliminarOfertaTrabajoEmpresaController@borrarOfertaTrabajo');
    // });
+   // Registro,Login y logout de empresa
     Route::post('/login', 'Auth\CompanyLoginController@loginCompany');
-    //Se deslogea un usuario
     Route::post('/logout', 'Auth\CompanyLogoutController@logout');
-    //Registrar
     Route::post('/register', 'Auth\CompanyRegisterController@create');
 });
