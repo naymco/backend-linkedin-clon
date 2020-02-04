@@ -20,4 +20,9 @@ class OfferWorks extends Model
     {
         $this->hasOne('App\StateAdd', 'company_id');
     }
+
+    public function provinces()
+    {
+        $this->hasOne('App\Provinces', 'provinces_id');
+    }
 }
