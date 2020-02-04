@@ -17,8 +17,8 @@ Route::group(['middleware'=>['cors']], function (){
     Route::post('/eliminar', 'DeleteUserRequestController@deleteRequest');
    // });
 //Se crea un usuario y se logea
-        Route::post('/register', 'Auth\UserRegisterController@create');
-        Route::post('/login', 'Auth\UserLoginController@loginUser');
+    Route::post('/register', 'Auth\UserRegisterController@create');
+    Route::post('/login', 'Auth\UserLoginController@loginUser');
     //Se deslogea un usuario
     Route::post('/logout', 'Auth\UserLogoutController@logout');
 
