@@ -26,11 +26,20 @@ Route::get('/prueba ', 'HomeController@index');
 
 Route::group(['middleware'=>['cors']], function (){
 //Saca las ofertas que esten anunciado
-Route::get('/anuncio', 'OfferWorksController@ofertasAnuncios');
+    Route::get('/anuncio', 'OfferWorksController@ofertasAnuncios');
+//Saca ofertas por skills
+    Route::get('/ordenadas', 'OfertasPopularidadController@ofertasOrdenadas');
+    //Saca todas las ciudades
+    Route::get('/ciudades', 'OfertasCiudadsController@ofertasCiudades');
+    //Saca las ofertas de la ciudad por parametro
+    Route::get('/ciudad/{nombreciudad}', 'OfertasCiudadsController@ofertasCiudad');
+    //Saca las ofertas de los sectores de trabajo por parametro
+    Route::get('/sector/{sector}', 'OfertasSectorController@ofertasSector');
+
 
 });
 
-Route::middleware('auth:api')->group(function () {
+/*Route::middleware('auth:api')->group(function () {
     Route::get('user', 'PassportController@details');
     Route::get('company', 'PassportController@companyDetails');
    // Route::get('/', 'HomeController@index')->name('home');
@@ -44,10 +53,10 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/noticias/{id}', 'NoticiaController@detail')->name('noticia.detail');
     Route::post('/comment/save', 'CommentController@save')->name('comment.save');
     Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
-    Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
+    Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');*/
 
 
 
-});
+/*});*/
 
 
