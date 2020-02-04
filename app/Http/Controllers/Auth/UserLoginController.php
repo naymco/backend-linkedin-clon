@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 
 
 class UserLoginController extends Controller
@@ -42,37 +42,35 @@ class UserLoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function loginUser(Request $request){
+    public function loginUser(Request $request)
+    {
 
 
+        try {
 
+            $body = $request->input();
 
-      try {
-
-            $body =$request->input();
-
-           $userCompro = DB::table('users')
+            $userCompro = DB::table('users')
                 ->where('email', '=', $body{'email'})
                 ->get();
-            if(count($userCompro) === 0){
+            if (count($userCompro) === 0) {
                 return response('Datos incorrectos');
             }
 
 
+            $testPass = decrypt($userCompro[0]->password);
 
-            $testPass=decrypt($userCompro[0]->password);
-
-            $password= ($body{'password'});
+            $password = ($body{'password'});
 
 
-            if($testPass === $password){
-               $generarToken=encrypt(str_random(15));
-                     DB::table('users')
+            if ($testPass === $password) {
+                $generarToken = encrypt(str_random(15));
+                DB::table('users')
                     ->where('email', '=', $body{'email'})
-                    ->update(['remember_token'=>$generarToken]);
-                return 'Te has conectado correctamente';
-            }else{
-                return  response('Datos incorrectos');
+                    ->update(['remember_token' => $generarToken]);
+                return response($generarToken);
+            } else {
+                return response('Datos incorrectos');
             }
 
             //code...
@@ -81,7 +79,7 @@ class UserLoginController extends Controller
             return $e->getMessage();
         }
 
-       // return $testPass;
+        // return $testPass;
 
 
     }

@@ -18,6 +18,7 @@ class CreateOfferWorksTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('province_id')->nullable(;)
             $table->string('title_offer');
             $table->text('description');
             $table->string('experience_level');
@@ -29,6 +30,7 @@ class CreateOfferWorksTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('company_id')->references('id')->on('company');
             $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('province_id')->references('id')->on('provinces');
         });
     }
 
