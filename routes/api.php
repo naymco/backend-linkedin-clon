@@ -29,6 +29,12 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('/anuncio', 'OfferWorksController@ofertasAnuncios');
 //Saca ofertas por skills
     Route::get('/ordenadas', 'OfertasPopularidadController@ofertasOrdenadas');
+    //Saca todas las ciudades
+    Route::get('/ciudades', 'OfertasCiudadsController@ofertasCiudades');
+    //Saca las ofertas de la ciudad por parametro
+    Route::get('/ciudad/{nombreciudad}', 'OfertasCiudadsController@ofertasCiudad');
+    //Saca las ofertas de los sectores de trabajo por parametro
+    Route::get('/sector/{sector}', 'OfertasSectorController@ofertasSector');
 
 
 });
