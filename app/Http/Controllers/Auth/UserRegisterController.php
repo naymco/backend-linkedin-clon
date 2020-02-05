@@ -61,7 +61,6 @@ class  UserRegisterController extends Controller
                 'surname' => 'required|string|max:25',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|min:8|string',
-<<<<<<< HEAD
                // 'phone' => 'required|string|max:255',
                // 'address' => 'required|string|max:255',
 //                'image' => 'required|string|max:255',
@@ -69,21 +68,11 @@ class  UserRegisterController extends Controller
                 // 'remember_token' =>  'string|max:255',
               //  'zip_code'=> 'required|string|max:255',
                // 'province'=> 'required|string|max:255',
-=======
-               /* 'phone' => 'required|string|max:255',
-                'address' => 'required|string|max:255',
-                'image' => 'required|string|max:255',
-                'country' => 'required|string|max:255',
-                // 'remember_token' =>  'string|max:255',
-                'zip_code'=> 'required|string|max:255',
-                'province'=> 'required|string|max:255',*/
->>>>>>> 9da27eddeb0e15dec749dcf57b6a3cfc95bef79e
             ]);
             return User::create([
                     'name'=>$data{"name"},
                     'surname'=>$data{"surname"},
                     'email'=>$data{"email"},
-<<<<<<< HEAD
                  //   'phone'=>$data{"phone"},
 //                    'image'=>$data{"image"},
                    // 'address'=>$data{"address"},
@@ -91,15 +80,6 @@ class  UserRegisterController extends Controller
                   //  'country' => $data{"country"},
                  //   'zip_code'=> $data{"zip_code"},
                   //  'province'=> $data{"province"},
-=======
-                    'password'=>encrypt($data{"password"}),
-                    /*'phone'=>$data{"phone"},
-                    'image'=>$data{"image"},
-                    'address'=>$data{"address"},
-                    'country' => $data{"country"},
-                    'zip_code'=> $data{"zip_code"},
-                    'province'=> $data{"province"},*/
->>>>>>> 9da27eddeb0e15dec749dcf57b6a3cfc95bef79e
 
                 ]
 
