@@ -30,6 +30,12 @@ Route::get('/noticia/file/{filename}', 'NoticiaController@getNoticia')->name('no
 Route::get('/noticias/{id}', 'NoticiaController@detail')->name('noticia.detail');
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
 Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
+Route::get('/dislike/{image_id}', 'LikeController@like')->name('comment.delete');
+Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
+Route::get('/dislike/{image_id}', 'LikeController@like')->name('like.delete');
+
+
+
 
 
 
