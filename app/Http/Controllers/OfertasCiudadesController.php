@@ -13,7 +13,7 @@ class OfertasCiudadesController extends Controller
     {
         try {
             $ofertasPorCiudad = DB::table('offer_works')
-                ->join('provinces', 'offer_works.provinces_id', '=', 'ciudads.id')
+                ->join('provinces', 'offer_works.province_id', '=', 'provinces.id')
                 ->orderBy('provinces.city')
                 ->get();
 
@@ -29,7 +29,7 @@ class OfertasCiudadesController extends Controller
     public function ofertasCiudad($nombreciudad)
     {
         $ofertasPorCiudad = DB::table('offer_works')
-            ->join('procinces', 'offer_works.provinces_id', '=', 'provinces.id')
+            ->join('provinces', 'offer_works.province_id', '=', 'provinces.id')
             ->orderBy('provinces.city')
             ->where('provinces.city', '=', $nombreciudad)
             ->get();

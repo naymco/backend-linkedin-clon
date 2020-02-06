@@ -68,7 +68,7 @@ class UserLoginController extends Controller
                 DB::table('users')
                     ->where('email', '=', $body{'email'})
                     ->update(['remember_token' => $generarToken]);
-                return response($generarToken);
+                return response(['remember_token' => $generarToken, 'user'=>$body{'email'}]);
             } else {
                 return response('Datos incorrectos');
             }

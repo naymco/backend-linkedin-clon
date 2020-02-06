@@ -29,7 +29,7 @@ class CreateCompanyTable extends Migration
             $table->string('country')->nullable();
             $table->integer('phone')->nullable();
             $table->string('password');
-            $table->rememberToken();
+//            $table->rememberToken();
             $table->timestamps();
             $table->string('remember_token')->nullable();
 
