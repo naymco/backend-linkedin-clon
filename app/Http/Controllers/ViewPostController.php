@@ -12,6 +12,7 @@ class ViewPostController extends Controller
     public function postPublicados(){
         try{
             $creacionPost= DB::table('images')
+                ->join('users', 'images.user_id', '=', 'users.id')
                 ->where('user_id', '=', true)
              //   ->where('company_id', '=', true)
                 ->get();
