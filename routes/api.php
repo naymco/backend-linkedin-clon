@@ -36,6 +36,15 @@ Route::group(['middleware'=>['cors']], function (){
     //Saca las ofertas de los sectores de trabajo por parametro
     Route::get('/sector/{sector}', 'OfertasSectorController@ofertasSector');
 
+    //Like y Dislike
+    Route::get('/like/{image_id}', 'LikeController@like');
+    Route::get('/dislike/{image_id}', 'LikeController@like');
+
+    //Timeline
+    Route::post('/crearpost', 'CreatePostController@CreatePost');
+    Route::get('/post', 'ViewPostController@postPublicados');
+
+
 
 });
 
