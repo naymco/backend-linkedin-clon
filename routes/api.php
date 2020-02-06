@@ -42,6 +42,8 @@ Route::group(['middleware'=>['cors']], function (){
 
     //Timeline
     Route::post('/crearpost', 'CreatePostController@CreatePost');
+    Route::get('/post', 'ViewPostController@postPublicados');
+
 
 
 });
