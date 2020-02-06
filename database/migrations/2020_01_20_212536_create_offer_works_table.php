@@ -21,10 +21,10 @@ class CreateOfferWorksTable extends Migration
             $table->unsignedBigInteger('province_id')->nullable();
             $table->string('title_offer');
             $table->text('description');
-            $table->string('experience_level');
-            $table->string('working_day');
-            $table->string('sector');
-            $table->string('required_skills');
+            $table->string('experience_level')->nullable();
+            $table->string('working_day')->nullable();
+            $table->string('sector')->nullable();
+            $table->string('required_skills')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

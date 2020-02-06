@@ -12,7 +12,9 @@ class OfferWorksController extends Controller
     public function ofertasAnuncios(){
         try{
             $ofertasAnuncios= DB::table('offer_works')
-                ->where('title_offer', '=', false)
+                ->join('company', 'offer_works.company_id', '=', 'company.id')
+
+                //->where('title_offer', '=', false)
                 ->get();
             return $ofertasAnuncios;
 

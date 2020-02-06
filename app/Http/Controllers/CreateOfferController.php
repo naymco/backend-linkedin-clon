@@ -15,7 +15,7 @@ class CreateOfferController extends Controller
 
         $oferta =$request->input();
         DB::table('offer_works')->insert([
-            ['tittle_offer'=>$oferta{'tittle_offer'},
+            ['title_offer'=>$oferta{'title_offer'},
                 'description'=>$oferta{'description'},
                 'experience_level'=>$oferta{'experience_level'},
                 'company_id'=>$oferta{'company_id'},
