@@ -13,7 +13,7 @@ class ViewPostController extends Controller
         try{
             $creacionPost= DB::table('images')
                 ->join('users', 'images.user_id', '=', 'users.id')
-                ->where('user_id', '=', true)
+                //->where('user_id', '=', true)
              //   ->where('company_id', '=', true)
                 ->get();
             return $creacionPost;
