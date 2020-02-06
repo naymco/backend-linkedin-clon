@@ -56,17 +56,6 @@ class  UserRegisterController extends Controller
 
             ]);
 
-            return User::create([
-                    'name'=>$data{"name"},
-                    'surname'=>$data{"surname"},
-                    'email'=>$data{"email"},
-                    'password'=>encrypt($data{"password"}),
-
-
-                ]
-
-            );
-
         } catch (\Exception $e) {
             return $e->getMessage();
 
