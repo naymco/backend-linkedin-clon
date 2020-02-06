@@ -29,11 +29,8 @@ class CreateCompanyTable extends Migration
             $table->string('country')->nullable();
             $table->integer('phone')->nullable();
             $table->string('password');
-<<<<<<< HEAD
-//            $table->rememberToken();
-=======
->>>>>>> da57a31342b63243078f0c598a489fee15adb035
             $table->timestamps();
+
             $table->string('remember_token')->nullable();
 
             $table->foreign('province_id')->references('id')->on('provinces');

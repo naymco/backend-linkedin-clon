@@ -62,41 +62,17 @@ class  UserRegisterController extends Controller
                 'surname' => 'required|string|max:25',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|min:8|string',
-<<<<<<< HEAD
 
 
             ]);
             return User::create([
-                    'name' => $data{"name"},
-                    'surname' => $data{"surname"},
-                    'email' => $data{"email"},
-                    'password' => encrypt($data{"password"}),
+                'name' => $data{"name"},
+                'surname' => $data{"surname"},
+                'email' => $data{"email"},
+                'password' => encrypt($data{"password"}),
 
-=======
-               // 'phone' => 'required|string|max:255',
-               // 'address' => 'required|string|max:255',
-//                'image' => 'required|string|max:255',
-              //  'country' => 'required|string|max:255',
-                // 'remember_token' =>  'string|max:255',
-              //  'zip_code'=> 'required|string|max:255',
-               // 'province'=> 'required|string|max:255',
             ]);
-            return User::create([
-                    'name'=>$data{"name"},
-                    'surname'=>$data{"surname"},
-                    'email'=>$data{"email"},
-                 //   'phone'=>$data{"phone"},
-//                    'image'=>$data{"image"},
-                   // 'address'=>$data{"address"},
-                    'password'=>encrypt($data{"password"}),
-                  //  'country' => $data{"country"},
-                 //   'zip_code'=> $data{"zip_code"},
-                  //  'province'=> $data{"province"},
->>>>>>> da57a31342b63243078f0c598a489fee15adb035
 
-                ]
-
-            );
         } catch (\Exception $e) {
             return $e->getMessage();
 
