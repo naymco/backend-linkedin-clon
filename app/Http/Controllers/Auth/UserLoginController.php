@@ -65,10 +65,10 @@ class UserLoginController extends Controller
 
             if ($testPass === $password) {
                 $generarToken = encrypt(str_random(15));
-                DB::table('users')
+               DB::table('users')
                     ->where('email', '=', $body{'email'})
                     ->update(['remember_token' => $generarToken]);
-                return response(['remember_token' => $generarToken, 'user'=>$body{'email'}]);
+                return response(['remember_token' => $generarToken, 'user'=>$userCompro]);
             } else {
                 return response('Datos incorrectos');
             }
