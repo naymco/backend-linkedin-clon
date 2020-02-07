@@ -20,9 +20,7 @@ class CreateOfferController extends Controller
                 'experience_level'=>$oferta{'experience_level'},
                 'company_id'=>$oferta{'company_id'},
                 'category_id'=>$oferta{'category_id'},
-                'province_id'=>$oferta{'province_id'},
-                'created_at'=>$oferta{'created_at'},
-                'updated_at'=>null]
+                'province_id'=>$oferta{'province_id'}]
         ]);
         // return $oferta{''};
     }
