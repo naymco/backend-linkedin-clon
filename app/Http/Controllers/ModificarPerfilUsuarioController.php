@@ -19,7 +19,8 @@ class ModificarPerfilUsuarioController extends Controller
         if(count($comprobarUsuario) === 1){
             DB::table('users')
                 ->where('id', '=', $usuario{'id'})
-                ->update(['name' =>$usuario{'name'},
+                ->update([
+                    'name' =>$usuario{'name'},
                     'surname' =>$usuario{'surname'},
                     'password' =>encrypt($usuario{'password'}),
                     'phone' =>$usuario{'phone'},
@@ -28,7 +29,8 @@ class ModificarPerfilUsuarioController extends Controller
                     'country' =>$usuario{'country'},
                     'image' => $usuario{'image'},
                     'province' =>$usuario{'province'},
-                    'zip_code' =>$usuario{'zip_code'}]);
+                    'zip_code' =>$usuario{'zip_code'}
+                    ]);
             return response('Perfil modificado correctamente');
         }else{
 

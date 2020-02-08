@@ -19,6 +19,14 @@ class CreatePostController extends Controller
                 'created_at'=>$post{'created_at'},
                 'updated_at'=>null]
         ]);
+
+        $img = "default.png";
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $img = time() . $file->getClientOriginalName();
+            $file->move(public_path() . '/img/', $img);
+        }   
+
         return response($post);
     }
 
@@ -28,7 +36,7 @@ class CreatePostController extends Controller
         if($request->hasFile('image')){
             $file = $request->file('image');
             $img = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/',$img);
+            $file->move(public_path().'/img/',$img);
         }   
      }
 }
