@@ -24,10 +24,10 @@ Route::post('/user/register', 'PassportController@register');
 Route::get('/prueba ', 'HomeController@index');
 
 
-Route::group(['middleware'=>['cors']], function (){
-//Saca las ofertas que esten anunciado
+Route::group(['middleware' => ['cors']], function () {
+    //Saca las ofertas que esten anunciado
     Route::get('/anuncio', 'OfferWorksController@ofertasAnuncios');
-//Saca ofertas por skills
+    //Saca ofertas por skills
     Route::get('/ordenadas', 'OfertasPopularidadController@ofertasOrdenadas');
     //Saca todas las ciudades
     Route::get('/ciudades', 'OfertasCiudadesController@ofertasCiudades');
@@ -43,9 +43,7 @@ Route::group(['middleware'=>['cors']], function (){
     //Timeline
     Route::post('/crearpost', 'CreatePostController@CreatePost');
     Route::get('/post', 'ViewPostController@postPublicados');
-
-
-
+    Route::post('/img/uploadImg', 'CreatePostController@uploadfile');
 });
 
 /*Route::middleware('auth:api')->group(function () {
@@ -67,5 +65,3 @@ Route::group(['middleware'=>['cors']], function (){
 
 
 /*});*/
-
-
