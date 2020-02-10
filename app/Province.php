@@ -10,11 +10,11 @@ class Province extends Model
 
     public function users()
     {
-        return $this->hasMany('App\User', 'user_id');
+        return $this->hasMany('App\User', 'province_id');
     }
 
     public function company()
     {
-        return $this->hasMany('App\Company', 'company_id');
+        return $this->hasMany('App\Company', 'province_id');
     }
 }

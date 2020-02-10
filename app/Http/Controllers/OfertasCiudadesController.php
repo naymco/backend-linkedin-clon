@@ -14,16 +14,15 @@ class OfertasCiudadesController extends Controller
         try {
             $ofertasPorCiudad = DB::table('offer_works')
                 ->join('provinces', 'offer_works.province_id', '=', 'provinces.id')
-                ->orderBy('provinces.city')
+
+                // ->orderBy('provinces.city')
                 ->get();
 
             return $ofertasPorCiudad;
-        }
-        catch(\Illuminate\Database\QueryException $ex){
+        } catch (\Illuminate\Database\QueryException $ex) {
             return ($ex->getMessage());
             // Note any method of class PDOException can be called on $ex.
         }
-
     }
 
     public function ofertasCiudad($nombreciudad)
@@ -35,5 +34,21 @@ class OfertasCiudadesController extends Controller
             ->get();
 
         return $ofertasPorCiudad;
+    }
+
+    public function provincesCategory()
+    {
+        $provinces = DB::table('provinces')->get();
+
+        return $provinces;
+    }
+
+    public function provinceId($name)
+    {
+        $provinces = DB::table('provinces')
+        ->where('city', '=', $name)
+        ->get();
+
+        return $provinces;
     }
 }

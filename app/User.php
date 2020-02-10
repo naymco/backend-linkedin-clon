@@ -28,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'role', 'password', 'remember_token','address','zip_code','province','country','phone'
+        'role', 'password', 'remember_token', 'address', 'zip_code', 'province', 'country', 'phone'
     ];
 
     /**
@@ -57,8 +57,6 @@ class User extends Authenticatable
 
     public function province()
     {
-        return $this->hasOne('App\Province', 'province_id');
+        return $this->hasOne('App\Province', 'id');
     }
-
-
 }
