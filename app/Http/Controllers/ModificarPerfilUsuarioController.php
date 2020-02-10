@@ -7,32 +7,45 @@ use Illuminate\Support\Facades\DB;
 
 class ModificarPerfilUsuarioController extends Controller
 {
-    public function CambiarPerfilUsuario(Request $request){
+    public function CambiarPerfilUsuario(Request $request)
+    {
 
-        $usuario=$request->input();
+        $usuario = $request->input();
 
-        $comprobarUsuario=DB::table('users')
-            ->where('id', '=', $usuario{'id'})
+        $comprobarUsuario = DB::table('users')
+            ->where('id', '=', $usuario{
+                'id'})
             ->get();
 
 
-        if(count($comprobarUsuario) === 1){
+        if (count($comprobarUsuario) === 1) {
             DB::table('users')
-                ->where('id', '=', $usuario{'id'})
+                ->where('id', '=', $usuario{
+                    'id'})
+                // ->join('provinces', 'users.province_id', '=', 'provinces.id')
                 ->update([
-                    'name' =>$usuario{'name'},
-                    'surname' =>$usuario{'surname'},
-                    'password' =>encrypt($usuario{'password'}),
-                    'phone' =>$usuario{'phone'},
-                    'email' =>$usuario{'email'},
-                    'address' =>$usuario{'address'},
-                    'country' =>$usuario{'country'},
-                    'image' => $usuario{'image'},
-                    'province' =>$usuario{'province'},
-                    'zip_code' =>$usuario{'zip_code'}
-                    ]);
+                    'name' => $usuario{
+                        'name'},
+                    'surname' => $usuario{
+                        'surname'},
+                    'password' => encrypt($usuario{
+                        'password'}),
+                    'phone' => $usuario{
+                        'phone'},
+                    'email' => $usuario{
+                        'email'},
+                    'address' => $usuario{
+                        'address'},
+                    'country' => $usuario{
+                        'country'},
+                    'image' => null,
+                    'province_id' => $usuario{
+                        'province_id'},
+                    'zip_code' => $usuario{
+                        'zip_code'}
+                ]);
             return response('Perfil modificado correctamente');
-        }else{
+        } else {
 
             return response('Upps ocurrio un error');
         }
