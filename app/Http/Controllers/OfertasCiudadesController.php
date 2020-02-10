@@ -43,11 +43,11 @@ class OfertasCiudadesController extends Controller
         return $provinces;
     }
 
-    public function provinceId($name)
+    public function provinceId($id)
     {
         $provinces = DB::table('provinces')
-        ->where('city', '=', $name)
-        ->get();
+            ->where('city', '=', $id)
+            ->get();
 
         return $provinces;
     }

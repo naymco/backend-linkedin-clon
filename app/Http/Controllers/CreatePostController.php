@@ -39,35 +39,36 @@ class CreatePostController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $img = time() . $file->getClientOriginalName();
-            $file->move(public_path() . './storage/', $img);
+            $file->move(public_path() . '/storage/', $img);
         }
+        return $img;
     }
 
     public function getImage(Request $request)
     {
         // $imgPath = DB::table('images')->get('image_path');
-        // $file = Storage::url($imgPath);
-        // // $path_file = './storage/' . $imgPath;
-        // return response($file);
-        $image_path = $request->file('image_path');
-        $description = $request->input('description');
+        $imgPath = $request->file('public');
+        Storage::url($imgPath);
+        $path_file = '/storage/' . $imgPath;
+        return response($path_file);
+        // $description = $request->input('description');
 
 
 
-        // //Asignar valores nuevo objeto
-        $user = DB::table('users')
-            ->where('users.id', '=', 'user_id')
-            ->get();
-        $image = new Image();
-        $image->user_id = $user->id;
+        // // //Asignar valores nuevo objeto
+        // $user = DB::table('users')
+        //     ->where('users.id', '=', 'user_id')
+        //     ->get();
+        // $image = new Image();
+        // $image->user_id = $user->id;
 
-        $image->description = $description;
+        // $image->description = $description;
 
-        // //Subir fichero
-        if ($image_path) {
-            $image_path_name = time() . $image_path->getClientOriginalName();
-            Storage::file('public')->put($image_path_name, File::get($image_path));
-            $image->image_path = $image_path_name;
-        }
+        // // //Subir fichero
+        // if ($image_path) {
+        //     $image_path_name = time() . $image_path->getClientOriginalName();
+        //     Storage::file('public')->put($image_path_name, File::get($image_path));
+        //     $image->image_path = $image_path_name;
+        // }
     }
 }
