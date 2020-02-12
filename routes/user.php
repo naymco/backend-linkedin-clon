@@ -19,6 +19,7 @@ Route::group(['middleware' => ['cors']], function () {
 
   //Curriculum
     Route::post('/curriculum', 'CurriculumController@CreateCV');
+    Route::get('/vercurriculum/{id}', 'ViewCurriculumController@curriculumId');
 
     // });
   //Se crea un usuario y se logea
