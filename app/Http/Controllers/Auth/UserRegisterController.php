@@ -44,6 +44,7 @@ class  UserRegisterController extends Controller
                 'surname' => 'required|string|max:25',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|min:8|string',
+                //'image' => 'required|image'
 
 
 
@@ -53,6 +54,7 @@ class  UserRegisterController extends Controller
                 'surname' => $data{"surname"},
                 'email' => $data{"email"},
                 'password' => encrypt($data{"password"}),
+                'image' => $data{"image"}
 
             ]);
 
