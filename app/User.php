@@ -59,4 +59,7 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Province', 'id');
     }
+    public function state(){
+        return $this->belongsToMany('App\OfferWorks','state_add','id','user_id')->withPivot('checking_state');
+    }
 }

@@ -25,4 +25,7 @@ class OfferWorks extends Model
     {
         $this->hasOne('App\Provinces', 'provinces_id');
     }
+    public function state(){
+        return $this->belongsToMany('App\User','state_add','id','offer_id')->withPivot('checking_state');
+    }
 }

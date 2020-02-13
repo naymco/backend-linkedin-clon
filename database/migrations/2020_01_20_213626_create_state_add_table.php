@@ -16,12 +16,12 @@ class CreateStateAddTable extends Migration
         Schema::create('state_add', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('offer_id')->nullable();
             $table->string('checking_state');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->foreign('offer_id')->references('id')->on('offer_works');
         });
     }
 

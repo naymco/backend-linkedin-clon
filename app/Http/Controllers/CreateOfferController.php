@@ -22,6 +22,7 @@ class CreateOfferController extends Controller
                 'category_id'=>$oferta{'category_id'},
                 'province_id'=>$oferta{'province_id'}]
         ]);
+        return ['Mensaje'=>'Oferta de empleo creada con exito'];
         // return $oferta{''};
     }
 }

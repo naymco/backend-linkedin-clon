@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\OfferWorks;
+use App\StateAdd;
 use App\User;
+use App\OfferWorks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,18 +16,23 @@ class SolicitarOfertaController extends Controller
 
         $body = $request->input();
         // $header = $request->header('authorization');
-        $comprobarPuestoTrabajo= DB::table('offer_works')->where('id', '=', $body{'id_offer_works'})->get();
-        $comprobarUsuarioExistente= DB::table('users')->where('id', '=', $body{'id_user'})->get();
+        $comprobarPuestoTrabajo= DB::table('offer_works')->where('id', '=', $body{'offer_id'})->get();
+        $comprobarUsuarioExistente= DB::table('users')->where('id', '=', $body{'user_id'})->get();
         if($comprobarPuestoTrabajo){
 
             if($comprobarUsuarioExistente){
 
 
-                return Solicitud::create([
-                    'id_user'=>$comprobarUsuarioExistente[0]->id,
-                    'id_offer_works'=>$comprobarPuestoTrabajo[0]->id,
-                    'Estado'=>"Pendiente"
-                ]);
+              DB::table('state_add')
+                    ->insert([
+                        'offer_id'=>$comprobarPuestoTrabajo[0]->id,
+                        'user_id'=>$comprobarUsuarioExistente[0]->id,
+                        'checking_state'=>"Pendiente"
+                    ]);
+
+                return ['Mensaje'=>'Se ha completado'];
+
+
             }
         }
     }
